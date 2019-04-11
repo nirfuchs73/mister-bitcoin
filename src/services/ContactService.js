@@ -18,9 +18,9 @@ function getContacts(filterBy = null) {
     return new Promise((resolve, reject) => {
         var contactsToReturn = contacts;
         if (filterBy && filterBy.term) {
-            contactsToReturn = filter(filterBy.term)
+            contactsToReturn = _filter(filterBy.term)
         }
-        resolve(sort(contactsToReturn))
+        resolve(_sort(contactsToReturn))
     })
 }
 
@@ -64,7 +64,8 @@ function _addContact(contact) {
     })
 }
 
-function filter(term) {
+
+function _filter(term) {
     term = term.toLocaleLowerCase()
     return contacts.filter(contact => {
         return contact.name.toLocaleLowerCase().includes(term) ||
@@ -73,7 +74,7 @@ function filter(term) {
     })
 }
 
-function sort(arr) {
+function _sort(arr) {
     return arr.sort((a, b) => {
         if (a.name.toLocaleLowerCase() < b.name.toLocaleLowerCase()) {
             return -1;
