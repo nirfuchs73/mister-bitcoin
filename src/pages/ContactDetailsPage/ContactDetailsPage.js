@@ -3,13 +3,13 @@ import contactService from '../../services/ContactService';
 
 import imgAvatar from '../../assets/img_avatar.png'
 
-import './ContactDetails.css'
+import './ContactDetailsPage.css'
 
-class ContactDetails extends Component {
+class ContactDetailsPage extends Component {
     state = { contact: {} }
 
     componentDidMount() {
-        const id = '5a56640269f443a5d64b32ca';
+        const id = this.props.match.params.id;
         contactService.getContactById(id)
             .then(contact => {
                 this.setState({ contact });
@@ -34,4 +34,4 @@ class ContactDetails extends Component {
 }
 
 
-export default ContactDetails;
+export default ContactDetailsPage;

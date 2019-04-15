@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import contactService from '../../services/ContactService';
 
 import ContactList from '../../components/ContactList';
@@ -48,9 +48,9 @@ class ContactPage extends Component {
                 <div className="contacts-container">
                     <ContactList contacts={this.state.contacts} />
                 </div>
-                <NavLink to="/contact/edit">
+                <Link to="/contact/edit">
                     <img src={plusImg} alt="Add contact" />
-                </NavLink>
+                </Link>
             </div >
         );
     }

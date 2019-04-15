@@ -5,7 +5,7 @@ import { BrowserRouter, HashRouter, Route, Switch, Link, NavLink } from 'react-r
 import HomePage from './pages/HomePage';
 import StatisticPage from './pages/StatisticPage';
 import ContactPage from './pages/ContactPage';
-import ContactDetails from './pages/ContactDetails';
+import ContactDetailsPage from './pages/ContactDetailsPage';
 import ContactEditPage from './pages/ContactEditPage';
 
 import './App.css';
@@ -36,8 +36,8 @@ const App = () => (
             <Switch>
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/contact" component={ContactPage} />
+                <Route exact path="/contact/:id" component={ContactDetailsPage} />
                 <Route path="/statistic" component={StatisticPage} />
-                {/* <Route path="/details" component={ContactDetails} /> */}
                 <Route path="/contact/edit/:id?" component={ContactEditPage} />
             </Switch>
         </HashRouter>
