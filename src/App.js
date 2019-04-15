@@ -1,51 +1,47 @@
 import React, { Component } from 'react';
 
-import { BrowserRouter, HashRouter, Route, Switch, Link, NavLink } from 'react-router-dom'
+import { BrowserRouter, HashRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
 
 import HomePage from './pages/HomePage';
 import StatisticPage from './pages/StatisticPage';
 import ContactPage from './pages/ContactPage';
 import ContactDetails from './pages/ContactDetails';
+import ContactEditPage from './pages/ContactEditPage';
 
 import './App.css';
 
+import homeImg from './assets/icons/home.png';
+import increaseImg from './assets/icons/increase.png';
+import usersImg from './assets/icons/users.png';
+
 const App = () => (
     <div className="jumbotron text-center">
-        <BrowserRouter>
+        <HashRouter>
             <div className="container text-center">
                 <nav>
                     <ul>
-                        <NavLink className="Nav_link" activeClassName="activeRoute" to="/home">Home </NavLink>
-                        <NavLink className="Nav_link" activeClassName="activeRoute" to="/statistic">Ctatistic </NavLink>
-                        <NavLink className="Nav_link" activeClassName="activeRoute" to="/contact">Contacts </NavLink>
-                        <NavLink className="Nav_link" activeClassName="activeRoute" to="/details">Details</NavLink>
+                        <NavLink className="Nav_link" activeClassName="activeRoute" to="/">
+                            <img src={homeImg} alt="Home" width="40" height="40" />
+                        </NavLink>
+                        <NavLink className="Nav_link" activeClassName="activeRoute" to="/contact">
+                            <img src={usersImg} alt="Contacts" width="40" height="40" />
+                        </NavLink>
+                        <NavLink className="Nav_link" activeClassName="activeRoute" to="/statistic">
+                            <img src={increaseImg} alt="Statistic" width="40" height="40" />
+                        </NavLink>
+                        {/* <NavLink className="Nav_link" activeClassName="activeRoute" to="/details">Details</NavLink> */}
                     </ul>
                 </nav>
             </div>
-            {/* <h1>Main Page</h1> */}
-
             <Switch>
-                <Route exact path="/home" component={HomePage} />
-                <Route path="/statistic" component={StatisticPage} />
+                <Route exact path="/" component={HomePage} />
                 <Route exact path="/contact" component={ContactPage} />
-                <Route path="/details" component={ContactDetails} />
+                <Route path="/statistic" component={StatisticPage} />
+                {/* <Route path="/details" component={ContactDetails} /> */}
+                <Route path="/contact/edit/:id?" component={ContactEditPage} />
             </Switch>
-            {/* <h3>Page footer</h3> */}
-        </BrowserRouter>
+        </HashRouter>
     </div>
 );
-
-// class App extends Component {
-//     render() {
-//         return (
-//             <div className="App">
-//                 {/* <HomePage /> */}
-//                 {/* <StatisticPage /> */}
-//                 {/* <ContactPage /> */}
-//                 <ContactDetails />
-//             </div>
-//         );
-//     }
-// }
 
 export default App;
