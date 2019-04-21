@@ -15,3 +15,14 @@
 .moves-list-container, .transter-coins-container {
   margin: 20px 0;
 }
+
+.contact-details-btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact-details-wrapper {
+  max-width: 300px;
+  padding: 0 20px;
+  margin: 0 auto;
+}

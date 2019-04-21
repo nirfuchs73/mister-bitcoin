@@ -14,6 +14,7 @@ import homeImg from './assets/icons/home.png';
 import increaseImg from './assets/icons/increase.png';
 import usersImg from './assets/icons/users.png';
 
+
 const App = () => (
     <div className="jumbotron text-center">
         <HashRouter>
@@ -36,9 +37,9 @@ const App = () => (
             <Switch>
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/contact" component={ContactPage} />
-                <Route exact path="/contact/:id" component={ContactDetailsPage} />
                 <Route path="/statistic" component={StatisticPage} />
                 <Route path="/contact/edit/:id?" component={ContactEditPage} />
+                <Route exact path="/contact/:id" component={ContactDetailsPage} />
             </Switch>
         </HashRouter>
     </div>

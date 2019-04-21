@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import ContactPreview from '../ContactPreview';
 
 
@@ -9,9 +9,9 @@ const ContactList = (props) => {
     const contactsPreview = props.contacts.map((contact, i) => {
         return (
             <li key={contact._id} className="contacts-list-item">
-                <Link to={`contact/${contact._id}`}>
+                <NavLink to={`contact/${contact._id}`}>
                     <ContactPreview contact={contact} />
-                </Link>
+                </NavLink>
             </li>
         )
     });
