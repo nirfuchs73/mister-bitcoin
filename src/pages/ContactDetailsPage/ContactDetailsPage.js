@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import contactService from '../../services/ContactService';
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import imgAvatar from '../../assets/img_avatar.png'
 import imgBack from '../../assets/icons/back.png'
@@ -28,12 +28,12 @@ class ContactDetailsPage extends Component {
         return (
             <div className="contact-details contact-details-wrapper">
                 <div className="contact-details-btns">
-                    <NavLink to="/contact">
+                    <Link to="/contact">
                         <img src={imgBack} alt="Back" title="Back" width="40" height="40" />
-                    </NavLink>
-                    <NavLink to={`/contact/edit/${this.props.match.params.id}`}>
+                    </Link>
+                    <Link to={`/contact/edit/${contact._id}`}>
                         <img src={imgEdit} alt="Edit" title="Edit" width="40" height="40" />
-                    </NavLink>
+                    </Link>
                 </div>
                 <div className="contact-details-body">
                     <img src={avatar} alt="Person" width="96" height="96" />
