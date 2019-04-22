@@ -26,10 +26,11 @@ function getContacts(filterBy = null) {
             gContacts = contacts;
             storageService.store(CONTACTS_KEY, gContacts);
         }
+        var contactsToReturn = gContacts;
         if (filterBy && filterBy.term) {
-            gContacts = _filter(filterBy.term)
+            contactsToReturn = _filter(filterBy.term)
         }
-        resolve(_sort(gContacts))
+        resolve(_sort(contactsToReturn))
     })
 }
 

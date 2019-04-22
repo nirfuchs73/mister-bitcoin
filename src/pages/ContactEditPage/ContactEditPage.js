@@ -45,17 +45,28 @@ class ContactEditPage extends Component {
             })
     }
 
+    handleDelete = () => {
+        const id = this.props.match.params.id;
+        if (id) {
+
+            contactService.deleteContact(id)
+                .then(contacts => {
+                    // console.log(contacts);
+                })
+        }
+    }
+
     render() {
         const contact = this.state.contact;
         const avatar = contact.picture || imgAvatar;
         return (
             <div className="contact-edit contact-edit-wrapper">
                 <div className="contact-details-btns">
-                    <Link to={`/contact/${contact._id}`} >
+                    <Link to={contact._id ? `/contact/${contact._id}` : '/contact'} >
                         <img src={imgBack} alt="Back" title="Back" width="40" height="40" />
                     </Link>
-                    <Link to={`/contact/edit/${this.props.match.params.id}`}>
-                        <img src={imgDelete} alt="Delete" title="Delete" width="40" height="40" />
+                    <Link to={'/contact'}>
+                        <img src={imgDelete} alt="Delete" title="Delete" width="40" height="40" onClick={this.handleDelete} />
                     </Link>
                 </div>
                 <form onSubmit={this.handleSubmit}>
@@ -76,7 +87,7 @@ class ContactEditPage extends Component {
                     </div>
                     <input type="submit" value="Save" />
                 </form>
-            </div>
+            </div >
         )
     }
 }
