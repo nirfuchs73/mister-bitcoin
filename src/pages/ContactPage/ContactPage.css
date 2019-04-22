@@ -1,0 +1,21 @@
+.contacts-page {
+  position: relative;
+  height: 100%;
+}
+
+.contacts-page .search-container {
+  /* height: 20px; */
+  /* padding: 0 10px; */
+  margin-left: 30px;
+}
+
+.contacts-page .contacts-container {
+  max-height: 360px;
+  overflow-x: auto;
+}
+
+.contacts-page .action-container {
+  position: absolute;
+  bottom: -3px;
+  right: 10px;
+}
